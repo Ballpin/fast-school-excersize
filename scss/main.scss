@@ -1,0 +1,12 @@
+// CSS Frameworks
+@import '../bower_components/foundation-sites/scss/foundation';
+@include foundation-everything(true);
+
+
+// CUSTOM CSS
+pre {
+  margin: 10px;
+  background: #e7e7e7;
+  border-radius: 10px;
+  padding: 10px;
+}
