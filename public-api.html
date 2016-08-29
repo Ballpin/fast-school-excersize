@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="columns">
+        <h1>Some weird stuff about church</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="columns" id="churchText">
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $.ajax({
+            type: "GET",
+            url: '//calapi.inadiutorium.cz/api/v0/en/calendars/general-la',
+            success: function (data) {
+                var parsedData = data;
+                $('#churchText').append('<h2>'+parsedData.sanctorale["title"]+'</h2>' +
+                                        '<ul>'+
+                                            '<li><strong>Language:</strong>'+parsedData.sanctorale["language"]+'</li>'+
+                                            '<li><strong>Promulgated:</strong>'+parsedData.system["promulgated"]+'</li>'+
+                                            '<li><strong>Desc:</strong>'+parsedData.system["desc"]+'</li>'+
+
+                                        '</ul>')
+            },
+            error: function (msg) {
+                alert(msg);
+            },
+            dataType: 'JSON'
+        });
+    });
+</script>
